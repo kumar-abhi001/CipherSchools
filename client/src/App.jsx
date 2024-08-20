@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import LoginPage from './pages/LoginPage'
-import QuizPage from './pages/QuizPage'
-
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import "./App.css";
+import LoginPage from "./pages/LoginPage";
+import QuizPage from "./pages/QuizPage";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div id='main-div'>
-      <QuizPage />
-    </div>
-  )
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/test" element={<QuizPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
