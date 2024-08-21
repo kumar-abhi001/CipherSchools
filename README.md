@@ -18,34 +18,38 @@ Before you begin, ensure you have met the following requirements:
    cd your-repo-name
 
 2. **Install frontend dependencies:**
-<<<<<<< HEAD
+```bash
     cd client
     npm install
-
+```
 3. **Create a .env file in the client directory:**
-    VITE_API_URL="Your backend URL"
+   - VITE_API_URL="Your backend URL"
 
 4. **Install backend dependencies:**
+   ```bash
     cd ../server
     npm install
+   ```
 
-5. **Create a .env file in the server directory:**
-    MONGODB_URI="Your MongoDB URI"
-    PORT="Your port number"
-    ACCESS_TOKEN_SECRET="Your unique access token"
-    ACCESS_TOKEN_EXPIRY="Access token expiry time"
-    REFRESH_TOKEN_SECRET="Your unique refresh token"
-    REFRESH_TOKEN_EXPIRY="Refresh token expiry time"
-    EMAIL="Your email"
-    PASSWORD="Your email password (use an app-specific password if you have two-factor authentication enabled)"
+6. **Create a .env file in the server directory:**
+   - MONGODB_URI="Your MongoDB URI"
+   - PORT="Your port number"
+   - ACCESS_TOKEN_SECRET="Your unique access token"
+   - ACCESS_TOKEN_EXPIRY="Access token expiry time"
+   - REFRESH_TOKEN_SECRET="Your unique refresh token"
+   - REFRESH_TOKEN_EXPIRY="Refresh token expiry time"
+   - EMAIL="Your email"
+   - PASSWORD="Your email password (use an app-specific password if you have two-factor authentication enabled)"
 
 **Start the development server:**
+```bash
     npm start
-=======
+```
+**Install modules for frontend:**
    ```bash
     cd client
     npm install
-
+```
 4. **Create a .env file in the client directory:**
     - VITE_API_URL="Your backend URL"
 
@@ -72,7 +76,6 @@ Before you begin, ensure you have met the following requirements:
 ```bash
     npm run dev
 ```
->>>>>>> 75bc627921f33bdd1114e7330aec1167cf1706a2
 
 **Start the development client:**
     npm run dev
