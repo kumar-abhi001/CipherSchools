@@ -10,6 +10,7 @@ import { sendEmail } from "../../utils/SendEmail.js"
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { log } from "console"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,7 +34,6 @@ const generateAccessAndRefereshTokens = async (userId) => {
 const registerUser = asyncHandler( async (req, res) => {
     // req.body -> data
     const {name, email, password } = req.body
-    //console.log("email: ", email);
 
     if (
         [name, email, password].some((field) => field?.trim() === "")
@@ -183,9 +183,6 @@ const submitTest = asyncHandler(async (req, res) => {
                 marksObtained += 1; // Increment marks for correct answer
             }
         }
-    console.log(JSON.stringify(selectected, null, 2)); 
-    console.log("Marks obtained: ", marksObtained);
-
 
     // Send email to user
     const emailTemplatePath = path.join(__dirname, 'EmailTemplate.html');
@@ -199,10 +196,30 @@ const submitTest = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, {}, "Test submitted successfully"));
     
 });
+
+const allTests = asyncHandler(async (req, res) => {
+    const tests = await Test.find({});
+    return res.status(200).json(new ApiResponse(200, tests, "Tests fetched successfully"));
+});
+ 
+const testQuestion = asyncHandler(async (req, res) => { 
+    const testId = req.headers.testid;
+
+    //Get all the question having testId
+    const test = await Question.find({ testId: testId }).select("-correctAnswer");
+
+    if (!test) {
+        return res.status(404).json({ message: "Test not found" });
+    }
+    return res.status(200).json(new ApiResponse(200, test, "Test fetched successfully"));
+});
+
 export {
     registerUser,
     loginUser,
     logoutUser,
     allQuestions,
-    submitTest
+    submitTest,
+    allTests,
+    testQuestion
 }

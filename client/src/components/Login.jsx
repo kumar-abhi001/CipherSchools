@@ -44,7 +44,7 @@ export default function Login({ setLogin }) {
       .then((data) => {
         if (data.success) {
           alert("Login successful");
-          navigate("/test");
+          navigate("/user/test");
         } else {
           alert(data.message || "Login failed");
         }
@@ -100,9 +100,16 @@ export default function Login({ setLogin }) {
         </div>
         <button
           type="submit"
-          className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          className="w-full mb-2 text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
         >
           {loading ? <Loading /> : "Login"}
+        </button>
+        <button
+          type="button"
+          onClick={() => { setEmail("guest@gmail.com");  setPassword("guest123"); }}
+          className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        >
+          Guest Login
         </button>
         <div className="mt-2">
           <p>

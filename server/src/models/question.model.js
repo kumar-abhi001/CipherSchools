@@ -1,25 +1,24 @@
-import mongoose, { Schema } from "mongoose";
+    import mongoose, { Schema } from "mongoose";
 
-const questionSchema = new Schema({
-    title: {
-        type: String,
-    },
-    options: [{
-        type: String,
-    }],
-    testId: {
-        type: Schema.Types.ObjectId,
-        ref: "Test",
-        required: true,
-    },
-    makrs: {
-        type: Number,
-        required: true,
-    },
-    correctAnswer: {
-        type: String,
-        required: true,
-    },
-}, { timestamps: true });
+    const questionSchema = new Schema({
+        title: {
+            type: String,
+        },
+        options: [{
+            type: String,
+            min: 0,
+            max: 3,
+            required: true,
+        }],
+        testId: {
+            type: Schema.Types.ObjectId,
+            ref: "Test",
+            required: true,
+        },
+        correctAnswer: {
+            type: Number,
+            required: true,
+        },
+    }, { timestamps: true });
 
-export const Question = mongoose.model("Question", questionSchema);
+    export const Question = mongoose.model("Question", questionSchema);

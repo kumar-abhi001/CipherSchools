@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addQuestion } from "../controllers/admin/admin.controller.js";
+import { addQuestion, createTest } from "../controllers/admin/admin.controller.js";
 
 const adminRoute = Router();
 
@@ -8,5 +8,6 @@ adminRoute.route("/").get((req, res) => {
 });
 
 adminRoute.route("/addquestion").post(addQuestion);
+adminRoute.route("/createtest").post(createTest);
 
 export default adminRoute;

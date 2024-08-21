@@ -17,30 +17,32 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/yourusername/your-repo-name.git
    cd your-repo-name
 
-Install frontend dependencies:
-cd client
-npm install
+2. **Install frontend dependencies:**
+    cd client
+    npm install
 
-Create a .env file in the client directory:
-VITE_API_URL="Your backend URL"
+3. **Create a .env file in the client directory:**
+    VITE_API_URL="Your backend URL"
 
-Install backend dependencies:
-cd ../server
-npm install
+4. **Install backend dependencies:**
+    cd ../server
+    npm install
 
-Create a .env file in the server directory:
-MONGODB_URI="Your MongoDB URI"
-PORT="Your port number"
-ACCESS_TOKEN_SECRET="Your unique access token"
-ACCESS_TOKEN_EXPIRY="Access token expiry time"
-REFRESH_TOKEN_SECRET="Your unique refresh token"
-REFRESH_TOKEN_EXPIRY="Refresh token expiry time"
-EMAIL="Your email"
-PASSWORD="Your email password (use an app-specific password if you have two-factor authentication enabled)"
+5. **Create a .env file in the server directory:**
+    MONGODB_URI="Your MongoDB URI"
+    PORT="Your port number"
+    ACCESS_TOKEN_SECRET="Your unique access token"
+    ACCESS_TOKEN_EXPIRY="Access token expiry time"
+    REFRESH_TOKEN_SECRET="Your unique refresh token"
+    REFRESH_TOKEN_EXPIRY="Refresh token expiry time"
+    EMAIL="Your email"
+    PASSWORD="Your email password (use an app-specific password if you have two-factor authentication enabled)"
 
-Start the development server:
-npm start
+**Start the development server:**
+    npm start
 
+**Start the development client:**
+    npm run dev
 Email After Test Submission
 ![Project Architecture](./server/public/image.png)
 
